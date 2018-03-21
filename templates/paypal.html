@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<head>
+ {% include 'proj_css.html' %}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</head>
+
+<body>
+
+  <script>
+    paypal.Button.render({
+
+        env: 'sandbox', // Or 'sandbox'
+
+        client: {
+            sandbox:    'Aa5aC08orGT9dn9iOVOuQcBGYLbkTw2PKWqJUgblJqj9A2mJqfdOVL-0Hd5VFNeQySePYYnMgcjRPgR2',
+            production: 'AUiBEtd4ve1yYUxqzpPNlc2T-iwxxSo_UK_m11g7MeXYvVbRSRYD0RGkgbcIRuiWHh8Fgr4UKu4ZWxN5'
+        },
+
+        commit: true, // Show a 'Pay Now' button
+
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '{{price}}', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
+
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function(payment) {
+
+                // The payment is complete!
+                // You can now show a confirmation message to the customer
+                document.getElementById("paypalMessage").innerHTML='Ticket payment was successful!';
+            });
+        }
+
+    }, '#paypal-button');
+  </script>
+</body>

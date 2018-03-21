@@ -1,0 +1,46 @@
+
+{% for obj in match %}
+<div id="{{obj.id}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{obj.match_description}} match details:</h4>
+      </div>
+      <div class="modal-body">
+          <div class='will'>
+           <h4>description:<small> {{obj.match_description}}</small></h4> 
+           </div>
+           <hr>
+            <div class='will'>
+           <h4>Stadium:<small> {{obj.stadium}}</small></h4> 
+           </div>
+           <hr>
+           <div class='will'>
+           <h4>location:<small> {{obj.stadium.location}}</small></h4> 
+           </div>
+           <hr>
+           <div class='will'>
+           <h4>match status:<small> {{obj.get_match_status_display}}</small></h4> 
+           </div>
+           <hr>
+           <div class='will'>
+           <h4>home team:<small> {{obj.home_team}}</small></h4> 
+           </div>
+           <hr>
+           <div class='will'>
+           <h4>away team:<small> {{obj.away_team}}</small></h4> 
+           </div>
+           <hr>
+      
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endfor %}

@@ -1,0 +1,64 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% include 'proj_css.html' %}
+	<title></title>
+	 <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+{% include 'nav_bar.html' %}
+{% include 'modals.html'%}
+<br>
+<br>
+
+    <div class='row'>
+      <div class='col-sm-3 col-sm-offset-4'>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">Buy Ticket Process:</div>
+  <div class="panel-body">
+    
+     <form method='POST'>
+          {% csrf_token %}
+          <div class='form-group'>
+            {{form.name.label_tag}}
+            {% render_field form.name class='form-control' %}
+
+            {{form.phone_no.label_tag}}
+            {% render_field form.phone_no class='form-control' %}
+            </div>
+            <div class='form-group'>
+            {{form.address.label_tag}}
+            {% render_field form.address class='form-control' %}
+
+            {{form.email.label_tag}}
+            {% render_field form.email class='form-control' %}
+            </div>
+        <div class='form-group'>
+       {{ticket_from.ticket_class.label_tag}}
+      {% render_field ticket_from.ticket_class class='form-control' %}
+
+      {{ticket_from.match.label_tag}}
+      {% render_field ticket_from.match class='form-control' %}
+
+      {{ticket_from.payment_method.label_tag}}
+      {% render_field ticket_from.payment_method class='form-control' %}
+      </div>
+            <div class='form-group'>
+          <input type="submit" class ='btn btn-success btn-block' name="">
+          </div>
+
+        </form>
+  
+  </div>
+  </div>
+</div>
+
+
+</body>
+  {% include 'proj_js.html' %}
+</html>

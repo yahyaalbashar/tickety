@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<div class='container'>
+ <nav class=" navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid" style="background-color:#cf0921">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            	<a class="navbar-brand" href="#">
+        			<img alt="Brand" src="{% static 'img/Jordan_FA.png' %}" style="height:20px;width:20px">
+     		    </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+           
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          
+                <ul class="nav navbar-nav" >    
+                    <li>
+                        <a href="{% url 'matchdetails' %}" style="color:#fff">Matches</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'createuser' %}" style="color:#fff">Buy Tickets</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}" style="color:#fff">Home</a>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+           
+            <!-- /.navbar-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </nav>
+   </div>
+   <br>

@@ -1,0 +1,70 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+{% include 'proj_css.html' %}
+  </style>
+
+</head>
+<body>
+  
+  {% for obj in user_instance %}
+    {% if obj.id == user_id %}
+  <div class=row>
+    <div class="col-lg-6 col-sm-offset-3">
+      
+<div class="ticket">
+  <div class="stub">
+    
+    <div class="top">
+      <span class="admit">JFA <img src="{% static 'img/Jordan_FA.png' %}" style='height: 40px; width: 40px'></span>
+      <span class="line"></span>
+      <span class="num">
+       {{ticket_instance.get_ticket_class_display}} Class
+      </span>
+    </div>
+
+
+    <div class="number">{{obj.id}}</div>
+  </div>
+
+  <div class="check">
+
+    <div class="big">
+      {{ticket_instance.match.home_team }} vs {{ticket_instance.match.away_team}}
+    </div>
+    <div class="info">
+      <section>
+        <div class="title">Date</div>
+        <div>{{ticket_instance.match.match_date_time }}</div>
+      </section>
+      <section>
+        <div class="title">Stadium</div>
+        <div>{{ticket_instance.match.stadium }}</div>
+      </section>
+      <section>
+        <div class="title">Competition</div>
+        <div>{{ticket_instance.match.competition_name }}</div>
+      </section>
+
+    </div>
+
+    <section>
+    <img src="{{ticket_instance.barcode_image.url}}" style="height: 100px;width: 180px;">
+    </section>
+         <section>
+        <div class='title_price pull-right'>{{ticket_instance.ticket_price}} JD</div>
+      </section>
+    
+  </div>
+</div>
+    </div>
+  </div>
+      {% endif %}
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% include 'proj_css.html' %}
+{% include 'nav_bar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% include 'paypal.html' %}	
+<br>
+<br>
+{% if payment_method == 0 %}
+  <div class="row">
+  	<div class='col-sm-6 col-sm-offset-3'>
+  <div class="panel panel-primary">
+  	<div class="panel-heading">Purchase Tickets with PayPal</div>
+  <div class="panel-body">
+   <div id="paypal-button"></div>
+</div>
+</div>
+</div>
+	</div>
+		<div class='col-sm-6 col-sm-offset-3'>
+		<div class="alert alert-danger" role="alert" id='paypalMessage'>
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		you've been directed here because you selected online payment method!
+	</div>
+	<h3>Pay Online:</h3>
+	</div>	
+{% else %}
+<div class='row'>
+	<div class='col-sm-6 col-sm-offset-3'>
+		<div class="alert alert-danger" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		you've been directed here because you selected cash on delivery payment method!
+	</div>
+	<h3>Cash On delivery:</h3>
+	</div>
+
+</div>
+{% endif %}
+{% include 'ticket.html' %}
+<div class ='row'>
+	<div class="col-sm-6 col-sm-offset-3">
+	<div class="list-group">
+  <a href="#" class="list-group-item active">
+    cash on delivery important notes
+  </a>
+  <a href="#" class="list-group-item list-group-item-danger">
+  	if the ticket was not purchased 3 days before match day the system will delete 
+  the ticket reference and it will be terminated and no longer active.</a>
+  <a href="#" class="list-group-item list-group-item-danger">if the ticket was screenshoted and there was no payment related to the ticket you'll not be able to use it for entrance at the stadium gates.</a>
+  <a href="#" class="list-group-item list-group-item-danger">the system generates each ticket with a unique id therefore it's easy to detict duplicated tickets and therefor the accused person will be exposed to a legal liability.</a>
+</div>
+	</div>
+</div>
+</body>
+</html>

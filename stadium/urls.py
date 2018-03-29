@@ -24,7 +24,6 @@ urlpatterns = [
     url(r'^matchdetails/', views.view_match, name='matchdetails'),
     url(r'^createuser/', views.create_user, name='createuser'),
     url(r'^ticket/', views.ticket_purchase, name='ticket'),
-    url(r'^purchase/', views.paypal_payment, name='purchase'),
 
 ]
 if settings.DEBUG:

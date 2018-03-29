@@ -1,5 +1,5 @@
 from django import forms
-from .models import User,Ticket,Arena
+from .models import User,Ticket,Arena,Match
 class UserForm(forms.ModelForm):
 	class Meta:
 		model=User
@@ -18,4 +18,13 @@ class TicketForm(forms.ModelForm):
 		'ticket_class',
 		'match',
 		'payment_method'
+		]
+
+class MatchForm(forms.ModelForm):
+	class Meta:
+		model=Match
+
+		fields=[
+		'match_status',
+		'competition_name'
 		]

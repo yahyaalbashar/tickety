@@ -14,7 +14,8 @@
   {% for obj in user_instance %}
     {% if obj.id == user_id %}
   <div class=row>
-    <div class="col-lg-6 col-sm-offset-3">
+
+    <div id='test' style="{% if payment_method == 0 %}display: none;{%endif%}" class="col-lg-6 col-sm-offset-3">
       
 <div class="ticket">
   <div class="stub">

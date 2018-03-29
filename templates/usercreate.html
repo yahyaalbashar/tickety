@@ -14,7 +14,17 @@
 {% include 'modals.html'%}
 <br>
 <br>
-
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+      <div class='col-sm-6 col-sm-offset-3'>
+  <div class="alert alert-danger" role="alert" >
+    {{ message }}
+</div>
+    
+    {% endfor %}
+</ul>
+{% endif %}
     <div class='row'>
       <div class='col-sm-3 col-sm-offset-4'>
 

@@ -36,7 +36,12 @@
 
         onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function(payment) {
+                var divy=document.getElementById('test');
+                if (payment){
+                    divy.style.display='block'
+                     console.log(payment)
 
+                }
                 // The payment is complete!
                 // You can now show a confirmation message to the customer
                 document.getElementById("paypalMessage").innerHTML='Ticket payment was successful!';

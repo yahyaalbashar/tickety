@@ -10,31 +10,32 @@
 <br>
 <br>
 {% if payment_method == 0 %}
+	<div class='col-sm-6 col-sm-offset-3'>
+	<div class="alert alert-info" role="alert" id='paypalMessage'>
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+	your ticket will be generated once the payment process is succeeded 
+</div>
+
+</div>
   <div class="row">
   	<div class='col-sm-6 col-sm-offset-3'>
   <div class="panel panel-primary">
-  	<div class="panel-heading">Purchase Tickets with PayPal</div>
+  	<div class="panel-heading">Pay Online:</div>
   <div class="panel-body">
    <div id="paypal-button"></div>
 </div>
 </div>
 </div>
 	</div>
-		<div class='col-sm-6 col-sm-offset-3'>
-		<div class="alert alert-danger" role="alert" id='paypalMessage'>
-			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-		you've been directed here because you selected online payment method!
-	</div>
-	<h3>Pay Online:</h3>
-	</div>	
+	
 {% else %}
 <div class='row'>
 	<div class='col-sm-6 col-sm-offset-3'>
 		<div class="alert alert-danger" role="alert">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-		you've been directed here because you selected cash on delivery payment method!
+		Attention.
 	</div>
-	<h3>Cash On delivery:</h3>
+	<h3>Pay on arrival:</h3>
 	</div>
 
 </div>

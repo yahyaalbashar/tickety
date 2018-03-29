@@ -1,3 +1,4 @@
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,48 +15,83 @@
 <body>
 
 	{% include 'nav_bar.html' %}
-	{% include 'modals.html' %}
-	<br>
-	<br>
-	<div class='row'>
-	{% include 'carousel.html' %}
+		{% include 'modals.html' %}
 
-		<div class="col-sm-8 col-sm-offset-1">
+		<div class="row">
+		<br>
+		{% include 'carousel.html' %}
+		</div>
+		<br>
+			<div class='row'>
+			<div class='col-sm-8 col-sm-offset-2' >
+		    <form method ='GET'  >{% csrf_token %}
+                      <div class="form-group">
+                      <input type="text" class="form-control" name = 'text_q' placeholder="search..." value='{{requet.GET.q}}'>
+                      <br>
+                      {{match_form.match_status.label_tag}}
+		            {% render_field match_form.match_status class='form-control' name='stat_q' %}
+		             <br>
+		             {{match_form.competition_name.label_tag}}
+		            {% render_field match_form.competition_name class='form-control' name='comp_q' %}
+		            	    
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="submit"> 
+                          </div> 
+      
+            </form>
 
-	<table class='table table-bordered'>
-		<thead >
-			<th class='info'>
-				Match
-			</th>
-			<th class='info'>
-				competition
-			</th >
-			<th class='info'>
-				Match date and time
-			</th>
-			<th class='info'>
-				Match Details
-			</th>
-		</thead>
-		{% for obj in match %}
-
-		<tr>
-			<td>
-			{{ obj.home_team }} vs {{ obj.away_team }}
-			</td>
-			<td>{{ obj.competition_name }}</td>
-			<td>{{ obj.match_date_time }}</td>
-			<td><button class='btn btn-success' data-toggle="modal" aria-hidden="true" data-target="#{{obj.id}}"> View details  </button></td>
-		</tr>
-		{% endfor %}
-	</table>
-
-	</div>
-	
-
-</div>
-
-
+		</div>
+		</div>
+		<br>
+		<br>
+		<div class="row" style="text-align: center;">
+			{% if request.GET.match_status == '3' %}
+			<div class="col-sm-8 col-sm-offset-2 ">
+				<table class="table table-hover">
+					<thead>
+							<th>Home team</th>
+							<th>Away team</th>
+							<th>final result</th>
+							<th>Competition</th>
+						
+					</thead>
+					{% for obj in match %}
+					<tr>
+						<td>{{obj.home_team}}</td>
+						<td>{{obj.away_team}}</td>
+						<td>{{obj.hometeam_result}} - {{obj.awayteam_result}}</td>
+						<td>{{obj.get_competition_name_display}}</td>
+					</tr>
+					
+						<td>
+							<img src="{{obj.home_team.team_logo.url}}" style="height: 50px; width: 50px;">
+						</td>
+						<td>
+							<img src="{{obj.away_team.team_logo.url}}" style="height: 50px; width: 50px;">
+						
+					{% endfor %}
+				</table>
+			</div>
+			{% else %}
+			<div class="col-sm-8 col-sm-offset-2 ">
+			{% for obj in match %}
+			  <div class="col-sm-4">
+			    <div class="thumbnail">
+			      <img src="{{obj.competition_logo.url}}" alt="Card image cap">
+			      <div class="caption">
+			        <h4>{{ obj.home_team }} vs {{ obj.away_team }}</h4>
+			        <p>{{ obj.get_competition_name_display }} {{ obj.match_date_time }}</p>
+			        <p><a class='btn btn-success' data-toggle="modal" aria-hidden="true" data-target="#{{obj.id}}">View Details</a> <a href="/createuser/" class="btn btn-default" role="button">Buy tickets</a></p>
+			      </div>
+			    </div>
+			  </div>
+		{% empty %}
+			<div class="alert alert-danger" role="alert"><h3 class=''>No matching results.!</h3></div>
+			{% endfor %}
+			</div>
+		</div>
+		{% endif %}
 
 </body>
 

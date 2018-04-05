@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'djdb',
         'USER': 'postgres',
         'PASSWORD': 'test1234',
-        'HOST': 'localhost',
+        'HOST': 'stadium-jo.herokuapp.com',
         'PORT': '5432',
     }
 }

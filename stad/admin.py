@@ -13,7 +13,7 @@ class TicketAdminView(admin.ModelAdmin):
 class MatchAdminView(admin.ModelAdmin):
 	class Meta:
 		model=Match
-	list_display=['match_date_time','home_team','away_team','competition_name','stadium','match_status']
+	list_display=['__str__','home_team','away_team','competition_name','stadium','match_status']
 class TeamAdminView(admin.ModelAdmin):
 	class Meta:
 		model=Team

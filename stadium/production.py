@@ -25,7 +25,7 @@ SECRET_KEY = 'wnql6__jcas4bxpxvn(6zb@ad#m3!iy33+uvwmy_4x1o8k5gul'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =  ['dj-stad.herokuapp.com', '.altairvanny.com']
+ALLOWED_HOSTS =  ['stadium-jo.herokuapp.com', '.altairvanny.com']
 
 # Application definition
 

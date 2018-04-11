@@ -25,7 +25,7 @@ SECRET_KEY = 'nxaj8rgl6(sizfd$7g)#88n@=m@h7)088rot_s8#n1l#c5(%k$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['stadium-jo.herokuapp.com', '.altairvanny.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'djdb',
         'USER': 'postgres',
         'PASSWORD': 'test1234',
-        'HOST': 'stadium-jo.herokuapp.com',
+        'HOST': '',
         'PORT': '5432',
     }
 }
@@ -133,12 +133,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,"media_root")
 
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
-DATABASES['default']['CONN_MAX_AGE'] = 500
+# import dj_database_url
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
+# DATABASES['default']['CONN_MAX_AGE'] = 500
 
-IMPORT_EXPORT_USE_TRANSACTIONS=True
+# IMPORT_EXPORT_USE_TRANSACTIONS=True
 
 # CORS_REPLACE_HTTPS_REFERER      = True
 # HOST_SCHEME                     = "https://"

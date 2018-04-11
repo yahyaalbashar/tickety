@@ -1,1 +1,0 @@
-web: gunicorn stadium.wsgi:application --log-file=-

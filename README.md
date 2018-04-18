@@ -17,5 +17,6 @@ Please refere to the project documentation file named as docs.docx
  
  for further information you are welcomed to contact yahya albashar the owner of this repo on the following:
  - Email: yalbashar77@outlook.com
- - twitter:@yahyaalbashar
+ - twitter: @yahyaalbashar
  - github profile: https://github.com/yahyaalbashar
+ - live demo on heroku:https://stadium-jo.herokuapp.com/home/

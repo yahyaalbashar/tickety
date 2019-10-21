@@ -44,7 +44,7 @@ markdown2==2.3.4
 matplotlib==2.1.2
 mccabe==0.6.1
 Mezzanine==4.2.3
-nltk==3.2.5
+nltk==3.4.5
 numpy==1.12.0
 oauthlib==2.0.2
 olefile==0.44
